@@ -7,13 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { HeaderService } from './shared/header/header.service';
 
 
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule, FormsModule, ReactiveFormsModule],
   declarations: [ AppComponent, HeaderComponent],
-  providers: 	[],
+  providers: 	[HeaderService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
