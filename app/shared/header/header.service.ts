@@ -20,8 +20,6 @@ export class HeaderService {
 	getAllCompetition(){
 		let headers = new Headers({'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1'});  
 		headers.append('X-Response-Control', 'full');
-        headers.append('Content-type', 'application/json');
-        headers.append('Access-Control-Allow-Headers', 'X-Requested-With,content-type,**Authorization**');
 
 		let options = new RequestOptions({headers: headers});
 

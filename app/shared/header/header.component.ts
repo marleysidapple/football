@@ -13,6 +13,7 @@ export class HeaderComponent {
 
 
 	public isOpen: boolean = false;
+	public competition: Object;
 
 
 	ngOnInit(){
@@ -33,8 +34,7 @@ export class HeaderComponent {
 		this.headerService.getAllCompetition().subscribe(
 			(result) => {
 					if (result){
-						//console.log(JSON.stringify(result.token));
-						console.log(result);
+						this.competition = result;
 					}
 				},
 
