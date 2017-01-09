@@ -12,7 +12,7 @@ import { HeaderService } from './shared/header/header.service';
 
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, FormsModule, ReactiveFormsModule],
+  imports:      [ BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [ AppComponent, HeaderComponent],
   providers: 	[HeaderService],
   bootstrap:    [ AppComponent ]

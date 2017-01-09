@@ -18,7 +18,7 @@
             <li class="dropdown" [ngClass] = "isOpen ? 'open' : ''">
               <a href="#" (click) = "showallcompeition()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Competitions<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li *ngFor="let com of competition"><a href="#">{{com?.caption}}</a></li>
+                <li *ngFor="let com of competition"><a href="{{com?._links.self.href}}">{{com?.caption}}</a></li>
                <!--  <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li> -->
               </ul>
