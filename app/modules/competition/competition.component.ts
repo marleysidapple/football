@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
 	templateUrl: './competition.html'
 })
 
-export class CompetitionComponent { }
+export class CompetitionComponent {  }
