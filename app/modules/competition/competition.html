@@ -3,9 +3,8 @@
 		this is for result and fixture
 	</div>
 
-	<div class="col-sm-2">&nbsp;</div>
 
-	<div class="col-sm-4">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				 <h3 class="panel-title">Standings</h3>
@@ -15,6 +14,7 @@
 				<table class="table table-bordered table-condensed">
 					
 					<tr>
+						<th>Position</th>
 						<th>Team</th>
 						<th>Played</th>
 						<th>Win</th>
@@ -23,12 +23,19 @@
 						<th>Pts</th>
 					</tr>
 
-					<!-- <tr *ngFor="let pts of leagueTable">
-						<td>{{pts?.standing.teamName}}</td>
-					</tr> -->
-
+					<tr *ngFor="let pts of standingTable">
+						<td>{{pts?.position}}</td>
+						<td>{{pts?.teamName}}</td>
+						<td>{{pts?.playedGames}}</td>
+						<td>{{pts?.wins}}</td>
+						<td>{{pts?.draws}}</td>
+						<td>{{pts?.losses}}</td>
+						<td>{{pts?.points}}</td>
+					</tr>
 
 				</table>
+
+
 
 
 			</div>

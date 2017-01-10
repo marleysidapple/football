@@ -3,7 +3,6 @@ import { HeaderService } from './header.service';
 import { CompetitionComponent } from './../../modules/competition/competition.component';
 import { Router, RouterModule } from '@angular/router';
 import { Response } from '@angular/http';
-import { Emi}
 
 @Component({
 	moduleId: module.id,
