@@ -7,7 +7,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 @Component({
 	moduleId: module.id,
 	selector: 'my-app',
-	templateUrl: './competition.html'
+	templateUrl: './competition.html',
 	styles: ['table { font-size: 12px; }']
 })
 
@@ -19,7 +19,7 @@ export class CompetitionComponent {
 
 	ngOnInit(): void {
 		this._route.params.subscribe((params: Params) => {
-			this.standingTable = this.competitionDetail(params.id);
+			this.standingTable = this.competitionDetail(params['id']);
 		});
 	}
 
