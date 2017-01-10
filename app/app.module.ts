@@ -11,13 +11,14 @@ import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './modules/home/home.component';
 import { CompetitionComponent } from './modules/competition/competition.component';
 import { HeaderService } from './shared/header/header.service';
+import { CompetitionService } from './modules/competition/competition.service';
 
 
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, RouterModule, AppRoutingModule],
   declarations: [ AppComponent, HeaderComponent, HomeComponent, CompetitionComponent],
-  providers: 	[HeaderService],
+  providers: 	[ HeaderService, CompetitionService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

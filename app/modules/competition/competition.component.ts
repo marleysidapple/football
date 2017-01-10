@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Response } from '@angular/http';
+import { CompetitionService } from './competition.service'; 
+
 
 @Component({
 	moduleId: module.id,
@@ -6,12 +9,35 @@ import { Component } from '@angular/core';
 	templateUrl: './competition.html'
 })
 
-export class CompetitionComponent {
+export class CompetitionComponent implements OnInit {
+
+	public standingTable: any;
+
+	constructor(private competitionService : CompetitionService) { }
 
 
+	
+	competitionDetail(id: number) {
+		this.competitionService.getLeagueTable(id).subscribe(
+			(result) => {
+					if (result){
+						this.standingTable = result.standing;
+						console.log(this.standingTable);
+					}
+				},
 
-	getCompetitionDetail(id: any) {
-		console.log(id);
+			err => {
+				
+			},
+
+			() => {}
+
+		);
+
+		console.log(this.standingTable);
+
+
+		
 	}
 
 }

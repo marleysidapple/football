@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { HeaderService } from './header.service';
 import { CompetitionComponent } from './../../modules/competition/competition.component';
 import { Router, RouterModule } from '@angular/router';
 import { Response } from '@angular/http';
+import { Emi}
 
 @Component({
 	moduleId: module.id,
@@ -51,9 +52,9 @@ export class HeaderComponent {
 	}
 
 
-	getCompetitionDetail(id: any){
-	 	this._compeitionComponent.getCompetitionDetail(id);
-		
+	getCompetitionDetail(id: number){
+	 	this._compeitionComponent.competitionDetail(id);
+		//this._router.navigate(['/competition/detail', id])
 	}
 
 }
