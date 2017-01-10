@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { HeaderService } from './header.service';
+import { CompetitionComponent } from './../../modules/competition/competition.component';
 import { Router, RouterModule } from '@angular/router';
 import { Response } from '@angular/http';
 
 @Component({
 	moduleId: module.id,
 	selector: 'my-header',
+	providers: [ CompetitionComponent ],
 	templateUrl: './header.html'
 })
 
@@ -21,7 +23,7 @@ export class HeaderComponent {
 		 this.competitionList();
 	}
 
-	constructor(private headerService: HeaderService, public _router: Router) { }
+	constructor(private headerService: HeaderService, public _router: Router, private _compeitionComponent : CompetitionComponent) { }
 
 	showallcompeition(){
 		if (this.isOpen === false){
@@ -50,7 +52,7 @@ export class HeaderComponent {
 
 
 	getCompetitionDetail(id: any){
-		this._router.navigate(["/competition/detail/"+id]);
+	 	this._compeitionComponent.getCompetitionDetail(id);
 		
 	}
 
