@@ -1,11 +1,108 @@
 <div class="container-fluid">
-	<div class="col-sm-6">
-		{{ standingTable?.leagueCaption }}
+	<h3>{{ standingTable?.leagueCaption }}</h3>
+	<hr/>
+
+	<div class="col-sm-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				 <h3 class="panel-title">Teams</h3>
+			</div>
+
+			<div class="panel-body">
+				<table class="table table-bordered table-condensed">
+					
+					<tr>
+						<th>Position</th>
+						<th>Team</th>
+						<th>P</th>
+						<th>W</th>
+						<th>D</th>
+						<th>L</th>
+						<th>Pts</th>
+					</tr>
+
+					<tr *ngFor="let pts of standingTable?.standing">
+						<td>{{pts?.position}}</td>
+						<td><img src="{{pts?.crestURI}}" style="max-width: 10px;">&nbsp;{{pts?.teamName}}</td>
+						<td>{{pts?.playedGames}}</td>
+						<td>{{pts?.wins}}</td>
+						<td>{{pts?.draws}}</td>
+						<td>{{pts?.losses}}</td>
+						<td>{{pts?.points}}</td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
 	</div>
 
-	<div class="col-sm-3">&nbsp;</div>
 
 
+	<div class="col-sm-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				 <h3 class="panel-title">Fixtures</h3>
+			</div>
+
+			<div class="panel-body fixture-holder">
+				<ul class="description" *ngFor="let fix of fixtures?.fixtures">
+					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
+					<li>Time</li>
+					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
+					<hr/>
+				</ul>
+
+				<!-- <hr/>
+
+				<ul class="description">
+					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
+					<li>Time</li>
+					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
+				</ul> -->
+			</div>
+		</div>
+	</div>
+
+
+	
+
+
+	<div class="col-sm-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				 <h3 class="panel-title">Results</h3>
+			</div>
+
+			<div class="panel-body">
+				<table class="table table-bordered table-condensed">
+					
+					<tr>
+						<th>Position</th>
+						<th>Team</th>
+						<th>P</th>
+						<th>W</th>
+						<th>D</th>
+						<th>L</th>
+						<th>Pts</th>
+					</tr>
+
+					<tr *ngFor="let pts of standingTable?.standing">
+						<td>{{pts?.position}}</td>
+						<td><img src="{{pts?.crestURI}}" style="max-width: 10px;">&nbsp;{{pts?.teamName}}</td>
+						<td>{{pts?.playedGames}}</td>
+						<td>{{pts?.wins}}</td>
+						<td>{{pts?.draws}}</td>
+						<td>{{pts?.losses}}</td>
+						<td>{{pts?.points}}</td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<!--standing panel-->
 	<div class="col-sm-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -36,11 +133,8 @@
 					</tr>
 
 				</table>
-
-
-
-
 			</div>
 		</div>
 	</div>
+	<!--standing panel-->
 </div>

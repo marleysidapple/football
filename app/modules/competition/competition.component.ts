@@ -8,19 +8,23 @@ import { ActivatedRoute, Params } from '@angular/router';
 	moduleId: module.id,
 	selector: 'my-app',
 	templateUrl: './competition.html',
-	styles: ['table { font-size: 12px; }']
+	styleUrls:  ['competition.component.css']
 })
 
 export class CompetitionComponent {
 
 	public standingTable: any;
+	public fixtures: any;
 
 	constructor(private competitionService: CompetitionService, private _route : ActivatedRoute) { }
 
 	ngOnInit(): void {
 		this._route.params.subscribe((params: Params) => {
 			this.standingTable = this.competitionDetail(params['id']);
+			this.fixtureDetail(params['id']);
 		});
+
+		
 	}
 
 
@@ -41,6 +45,23 @@ export class CompetitionComponent {
 
 		);
 
+	}
+
+
+	fixtureDetail(id: number){
+		this.competitionService.getFixture(id).subscribe(
+				(result) => {
+					if (result) {
+						this.fixtures = result;
+					}
+				},
+
+				err => {
+
+				},
+
+				() => { }
+			);
 	}
 
 }
