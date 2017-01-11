@@ -48,9 +48,9 @@
 
 			<div class="panel-body fixture-holder">
 				<ul class="description" *ngFor="let fix of fixtures?.fixtures">
-					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
+					<li><span class="clublogo"><img src="http://placehold.it/90x90" class="img-circle"></span><strong class="clubname">{{fix?.homeTeamName}}</strong></li>
 					<li>vs</li>
-					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
+					<li><span class="clublogo"><img src="http://placehold.it/90x90" class="img-circle"></span><strong class="clubname">{{fix?.awayTeamName}}</strong></li>
 					<hr/>
 				</ul>
 
