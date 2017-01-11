@@ -1,10 +1,12 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="col-sm-6">
-		this is for result and fixture
+		{{ standingTable?.leagueCaption }}
 	</div>
 
+	<div class="col-sm-3">&nbsp;</div>
 
-	<div class="col-sm-6">
+
+	<div class="col-sm-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				 <h3 class="panel-title">Standings</h3>
@@ -23,9 +25,9 @@
 						<th>Pts</th>
 					</tr>
 
-					<tr *ngFor="let pts of standingTable">
+					<tr *ngFor="let pts of standingTable?.standing">
 						<td>{{pts?.position}}</td>
-						<td>{{pts?.teamName}}</td>
+						<td><img src="{{pts?.crestURI}}" style="max-width: 10px;">&nbsp;{{pts?.teamName}}</td>
 						<td>{{pts?.playedGames}}</td>
 						<td>{{pts?.wins}}</td>
 						<td>{{pts?.draws}}</td>

@@ -29,7 +29,7 @@ export class CompetitionComponent {
 		this.competitionService.getLeagueTable(id).subscribe(
 			(result) => {
 				if (result) {
-					this.standingTable = result.standing;
+					this.standingTable = result;
 				}
 			},
 
