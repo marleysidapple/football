@@ -21,6 +21,7 @@
 						<th>Pts</th>
 					</tr>
 
+				<tbody>	
 					<tr *ngFor="let pts of standingTable?.standing">
 						<td>{{pts?.position}}</td>
 						<td><img src="{{pts?.crestURI}}" style="max-width: 10px;">&nbsp;{{pts?.teamName}}</td>
@@ -30,6 +31,7 @@
 						<td>{{pts?.losses}}</td>
 						<td>{{pts?.points}}</td>
 					</tr>
+				</tbody>
 
 				</table>
 			</div>
@@ -47,7 +49,7 @@
 			<div class="panel-body fixture-holder">
 				<ul class="description" *ngFor="let fix of fixtures?.fixtures">
 					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
-					<li>Time</li>
+					<li>vs</li>
 					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
 					<hr/>
 				</ul>
@@ -113,7 +115,7 @@
 				<table class="table table-bordered table-condensed">
 					
 					<tr>
-						<th>Position</th>
+						<th>#</th>
 						<th>Team</th>
 						<th>P</th>
 						<th>W</th>
@@ -123,7 +125,7 @@
 					</tr>
 
 					<tr *ngFor="let pts of standingTable?.standing">
-						<td>{{pts?.position}}</td>
+						<td [ngClass] = "pts?.position <= 4 ? 'green' : pts?.position >= 18 ? 'red' : ''">{{pts?.position}}</td>
 						<td><img src="{{pts?.crestURI}}" style="max-width: 10px;">&nbsp;{{pts?.teamName}}</td>
 						<td>{{pts?.playedGames}}</td>
 						<td>{{pts?.wins}}</td>

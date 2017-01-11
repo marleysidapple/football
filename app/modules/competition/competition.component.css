@@ -19,3 +19,17 @@ ul.description li{
     margin: 0px 0px 43px 0px;
 }
 
+td{
+	text-align: center;
+}
+
+td.green{
+	background-color: green;
+	color: #fff;
+}
+
+td.red{
+	background-color: #c52b2b;
+	color: #fff;
+}
+

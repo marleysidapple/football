@@ -17,24 +17,35 @@ export class CompetitionService {
 	constructor(private _http: Http) { }
 
 
-	getLeagueTable(id: number){
-		let headers = new Headers({'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1'});  
+	getLeagueTable(id: number) {
+		let headers = new Headers({ 'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1' });
 		headers.append('X-Response-Control', 'full');
 
-		let options = new RequestOptions({headers: headers});
+		let options = new RequestOptions({ headers: headers });
 
-		return this._http.get(this.url + '/competitions/' +id+ '/leagueTable', options)
+		return this._http.get(this.url + '/competitions/' + id + '/leagueTable', options)
 			.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
 			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 	}
 
-	getFixture(id: number){
-		let headers = new Headers({'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1'});  
+	getFixture(id: number) {
+		let headers = new Headers({ 'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1' });
 		headers.append('X-Response-Control', 'full');
 
-		let options = new RequestOptions({headers: headers});
+		let options = new RequestOptions({ headers: headers });
 
-		return this._http.get(this.url + '/competitions/' +id+ '/fixtures?timeFrame=n20', options)
+		return this._http.get(this.url + '/competitions/' + id + '/fixtures?timeFrame=n20', options)
+			.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
+			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+	}
+
+	getTeamDetail(fullurl: string) {
+		let headers = new Headers({ 'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1' });
+		headers.append('X-Response-Control', 'full');
+
+		let options = new RequestOptions({ headers: headers });
+
+		return this._http.get(fullurl, options)
 			.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
 			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 	}

@@ -15,6 +15,7 @@ export class CompetitionComponent {
 
 	public standingTable: any;
 	public fixtures: any;
+	
 
 	constructor(private competitionService: CompetitionService, private _route : ActivatedRoute) { }
 
@@ -59,6 +60,23 @@ export class CompetitionComponent {
 				err => {
 
 				},
+
+				() => { }
+			);
+	}
+
+
+	teamDetail(url: string){
+		this.competitionService.getTeamDetail(url).subscribe(
+				(result) => {
+					if (result){
+						//console.log(result);
+					}
+				}, 
+
+				err => {
+
+				}, 
 
 				() => { }
 			);
