@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Response } from '@angular/http';
 import { CompetitionService } from './competition.service';
+import { FixturesComponent } from './../fixtures/fixtures.component';
 import { ActivatedRoute, Params } from '@angular/router';
 
 
@@ -8,7 +9,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 	moduleId: module.id,
 	selector: 'my-app',
 	templateUrl: './competition.html',
-	styleUrls:  ['competition.component.css']
+	providers: [ FixturesComponent ],
+	//styleUrls:  ['competition.component.css']
 })
 
 export class CompetitionComponent {

@@ -27,20 +27,16 @@
 			</div>
 
 			<div class="panel-body fixture-holder">
+				
 				<ul class="description" *ngFor="let fix of fixtures?.fixtures">
-					<li><span class="clublogo"><img src="{{allTeams[0].crestUrl}}" class="img-circle" style="max-width: 50px;"></span><strong class="clubname">{{fix?.homeTeamName}}</strong></li>
+					<my-fixture [hometeam]="fix?.homeTeamName" [awayteam] = "fix?.awayTeamName"></my-fixture>
+					<!-- <li><span class="clublogo"><img src="{{allTeams[0].crestUrl}}" class="img-circle" style="max-width: 50px;"></span><strong class="clubname">{{fix?.homeTeamName}}</strong></li>
 					<li>vs</li>
-					<li><span class="clublogo"><img src="http://placehold.it/90x90" class="img-circle"  style="max-width: 50px;"></span><strong class="clubname">{{fix?.awayTeamName}}</strong></li>
+					<li><span class="clublogo"><img src="http://placehold.it/90x90" class="img-circle"  style="max-width: 50px;"></span><strong class="clubname">{{fix?.awayTeamName}}</strong></li> -->
 					<hr/>
-				</ul>
+				</ul> 
 
-				<!-- <hr/>
-
-				<ul class="description">
-					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
-					<li>Time</li>
-					<li><img src="http://placehold.it/90x90" class="img-circle"></li>
-				</ul> -->
+				
 			</div>
 		</div>
 	</div>
