@@ -15,6 +15,7 @@ export class CompetitionComponent {
 
 	public standingTable: any;
 	public fixtures: any;
+	public allTeams: any;
 	
 
 	constructor(private competitionService: CompetitionService, private _route : ActivatedRoute) { }
@@ -23,6 +24,7 @@ export class CompetitionComponent {
 		this._route.params.subscribe((params: Params) => {
 			this.standingTable = this.competitionDetail(params['id']);
 			this.fixtureDetail(params['id']);
+			this.teamDetail(params['id']);
 		});
 
 		
@@ -66,11 +68,11 @@ export class CompetitionComponent {
 	}
 
 
-	teamDetail(url: string){
-		this.competitionService.getTeamDetail(url).subscribe(
+	teamDetail(id: number){
+		this.competitionService.getTeamDetail(id).subscribe(
 				(result) => {
 					if (result){
-						//console.log(result);
+						this.allTeams = result.teams; 
 					}
 				}, 
 

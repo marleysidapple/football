@@ -37,6 +37,14 @@ ul.description li .clubname{
     margin: 0px 0px 43px 0px;
 }
 
+
+.team-holder{
+	max-height: 600px;
+    overflow-y: scroll;
+    margin: 0px 0px 43px 0px;
+}
+
+
 td{
 	text-align: center;
 }
@@ -49,5 +57,11 @@ td.green{
 td.red{
 	background-color: #c52b2b;
 	color: #fff;
+}
+
+ul.teamlisting{
+	list-style-type: none;
+	font-size: 13px;
+	line-height: 17px;
 }
 
