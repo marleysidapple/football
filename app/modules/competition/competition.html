@@ -9,7 +9,7 @@
 			</div>
 
 			<div class="panel-body team-holder">
-				<ul *ngFor="let team of allTeams" class="teamlisting">
+				<ul *ngFor="let team of allTeams?.teams" class="teamlisting">
 					<li><a class="teamname" routerLink = "/team/details/{{team?._links.self.href | explodestr}}"><img src="{{team?.crestUrl}}" style="max-width: 20px;">&nbsp;{{team?.name}}</a></li>
 					<hr/>
 				</ul>

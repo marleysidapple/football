@@ -16,14 +16,14 @@ import { CompetitionComponent } from './modules/competition/competition.componen
 import { FixturesComponent } from './modules/fixtures/fixtures.component';
 import { HeaderService } from './shared/header/header.service';
 import { CompetitionService } from './modules/competition/competition.service';
-import { DefaultRequestOptions } from './defaultRequestOptions';
+
 
 
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, RouterModule, AppRoutingModule],
   declarations: [ AppComponent, HeaderComponent, HomeComponent, CompetitionComponent, FixturesComponent, ExplodePipe],
-  providers: 	[ HeaderService, CompetitionService, {provide: RequestOptions, useClass: DefaultRequestOptions} ],
+  providers: 	[ HeaderService, CompetitionService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

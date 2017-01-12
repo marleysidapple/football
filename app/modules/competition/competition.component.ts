@@ -4,6 +4,9 @@ import { Response } from '@angular/http';
 import { CompetitionService } from './competition.service';
 import { FixturesComponent } from './../fixtures/fixtures.component';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Teamlisting } from './teamlisting';
+
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -18,8 +21,11 @@ export class CompetitionComponent {
 
 	public standingTable: any;
 	public fixtures: any;
-	public allTeams: any;
+	//public allTeams: any;
 	public myurl: any;
+
+	 // Local properties
+    allTeams: Teamlisting[];
 	
 
 	constructor(private competitionService: CompetitionService, private _route : ActivatedRoute) { }
@@ -75,7 +81,8 @@ export class CompetitionComponent {
 		this.competitionService.getTeamListing(id).subscribe(
 				(result) => {
 					if (result){
-						this.allTeams = result.teams; 
+						//console.log(result.teams);
+						this.allTeams = result; 
 					}
 				}, 
 
