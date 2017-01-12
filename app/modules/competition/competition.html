@@ -10,7 +10,7 @@
 
 			<div class="panel-body team-holder">
 				<ul *ngFor="let team of allTeams" class="teamlisting">
-					<li><img src="{{team?.crestUrl}}" style="max-width: 20px;">&nbsp;{{team?.name}}</li>
+					<li><a class="teamname" routerLink = "/team/details/{{team?._links.self.href | explodestr}}"><img src="{{team?.crestUrl}}" style="max-width: 20px;">&nbsp;{{team?.name}}</a></li>
 					<hr/>
 				</ul>
 				
@@ -29,7 +29,7 @@
 			<div class="panel-body fixture-holder">
 				
 				<ul class="description" *ngFor="let fix of fixtures?.fixtures">
-					<my-fixture [hometeam]="fix?.homeTeamName" [awayteam] = "fix?.awayTeamName"></my-fixture>
+					<my-fixture [hometeam]="fix?.homeTeamName" [awayteam] = "fix?.awayTeamName" [hometeamId] = "fix?._links.homeTeam.href | explodestr" [awayteamId] = "fix?._links.awayTeam.href | explodestr"></my-fixture>
 					<!-- <li><span class="clublogo"><img src="{{allTeams[0].crestUrl}}" class="img-circle" style="max-width: 50px;"></span><strong class="clubname">{{fix?.homeTeamName}}</strong></li>
 					<li>vs</li>
 					<li><span class="clublogo"><img src="http://placehold.it/90x90" class="img-circle"  style="max-width: 50px;"></span><strong class="clubname">{{fix?.awayTeamName}}</strong></li> -->

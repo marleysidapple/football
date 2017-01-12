@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Pipe, PipeTransform } from '@angular/core';
+import { ExplodePipe } from './../../pipes/explode.pipe';
 import { Response } from '@angular/http';
 import { CompetitionService } from './competition.service';
 import { FixturesComponent } from './../fixtures/fixtures.component';
@@ -18,6 +19,7 @@ export class CompetitionComponent {
 	public standingTable: any;
 	public fixtures: any;
 	public allTeams: any;
+	public myurl: any;
 	
 
 	constructor(private competitionService: CompetitionService, private _route : ActivatedRoute) { }
@@ -28,7 +30,6 @@ export class CompetitionComponent {
 			this.fixtureDetail(params['id']);
 			this.teamDetail(params['id']);
 		});
-
 		
 	}
 
@@ -71,7 +72,7 @@ export class CompetitionComponent {
 
 
 	teamDetail(id: number){
-		this.competitionService.getTeamDetail(id).subscribe(
+		this.competitionService.getTeamListing(id).subscribe(
 				(result) => {
 					if (result){
 						this.allTeams = result.teams; 
