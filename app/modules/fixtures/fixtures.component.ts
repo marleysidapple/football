@@ -25,12 +25,12 @@ export class FixturesComponent {
 
 
  ngOnInit(){
- 	//this.homeTeamImage = this.homeTeamDetail(this.hometeamId);
- 	//this.awayTeamImage = this.awayTeamDetail(this.awayteamId);
+ 	this.homeTeamImage = this.homeTeamDetail(this.hometeamId);
+ 	this.awayTeamImage = this.awayTeamDetail(this.awayteamId);
  }
 
 
-/*
+
  homeTeamDetail(id: number){
  	this.competitionService.getTeamDetail(id).subscribe(
 				(result) => {
@@ -52,8 +52,7 @@ export class FixturesComponent {
  	this.competitionService.getTeamDetail(id).subscribe(
 				(result) => {
 					if (result){
-						console.log(result.crestUrl);
-						//this.awayTeamImage = result.crestUrl;
+						this.awayTeamImage = result.crestUrl;
 						//this.homeTeamImage = result; 
 					}
 				}, 
@@ -65,7 +64,7 @@ export class FixturesComponent {
 				() => { }
 			);
  }
- */
+ 
 
   
 

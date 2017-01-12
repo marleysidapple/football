@@ -45,7 +45,7 @@ export class CompetitionService {
 
 		let options = new RequestOptions({ headers: headers });
 
-		return this._http.get(this.url + '/competitions/' + id + '/fixtures?timeFrame=n20', options)
+		return this._http.get(this.url + '/competitions/' + id + '/fixtures?timeFrame=n9', options)
 			.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
 			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 	}
