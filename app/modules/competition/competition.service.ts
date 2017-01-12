@@ -3,7 +3,7 @@ import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angul
 import { Observable } from 'rxjs/Observable';
 import { Teamlisting } from './teamlisting';
 
-import 'rxjs/Rx'; 
+import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/observable/of';
@@ -17,11 +17,14 @@ export class CompetitionService {
 
 	private url: string = 'http://api.football-data.org/v1';
 	private allTeams: Teamlisting;
-	private observable : Observable<any>;
+	private observable: Observable<any>;
 
 	constructor(private _http: Http) { }
 
-
+	createAuthorizationHeader(headers: Headers) {
+    headers.append('X-Auth-Token' , '932e2b26e9cc4e789141aec6d2eef0a1');
+    headers.append('X-Response-Control', 'full');
+  }
 
 
 	getLeagueTable(id: number) {
@@ -66,32 +69,30 @@ export class CompetitionService {
 		}
 	}
 	*/
-	getTeamListing(id: number) {
-		 console.log('team called');
-		if (this.allTeams) {
-			 console.log('data available');
-			 return Observable.of(this.allTeams);
-		} else {
-			 console.log('send new request');
-			let headers = new Headers({ 'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1' });
-			headers.append('X-Response-Control', 'full');
 
+	getTeamListing(id: number) {
+		console.log('team called');
+		if (this.allTeams) {
+			console.log('data available');
+			return Observable.of(this.allTeams);
+		} else {
+			console.log('send new request');
+			// let headers = new Headers({ 'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1' });
+			// headers.append('X-Response-Control', 'full');
+			let headers = new Headers();
+    		this.createAuthorizationHeader(headers);
 			this.observable = this._http.get(this.url + '/competitions/' + id + '/teams', {
 				headers: headers
-			})
-			.map((res : Response) => {
-				 this.observable = null;
-				 this.allTeams = res.json();
-				 return this.allTeams;
-				
+			}).map((res: Response) => {
+				this.observable = null;
+				this.allTeams = res.json();
+				return this.allTeams;
+
+			}).catch((error: any) => {
+				return Observable.throw(error.json().error || 'Server Error');
 			}).share();
 
 			return this.observable;
-
-			// let options = new RequestOptions({ headers: headers });
-			// return this._http.get(this.url + '/competitions/' + id + '/teams', options)
-			// 	.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
-			// 	.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 		}
 	}
 
