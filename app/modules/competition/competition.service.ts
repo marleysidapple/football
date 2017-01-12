@@ -14,6 +14,7 @@ export class CompetitionService {
 
 	private url: string = 'http://api.football-data.org/v1';
 
+
 	constructor(private _http: Http) { }
 
 

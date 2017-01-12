@@ -9,7 +9,6 @@ import 'rxjs/add/operator/catch';
 
 
 @Injectable()
-
 export class HeaderService {
 
 	private url: string = 'http://api.football-data.org/v1';
