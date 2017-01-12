@@ -1,10 +1,12 @@
 import { Component, Input, Pipe, PipeTransform } from '@angular/core';
 import { ExplodePipe } from './../../pipes/explode.pipe';
-import { Response } from '@angular/http';
+import { Response, Headers } from '@angular/http';
 import { CompetitionService } from './competition.service';
 import { FixturesComponent } from './../fixtures/fixtures.component';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Teamlisting } from './teamlisting';
+
+import 'rxjs/Rx'; 
 
 import { Observable } from 'rxjs/Observable';
 
@@ -25,7 +27,7 @@ export class CompetitionComponent {
 	public myurl: any;
 
 	 // Local properties
-    allTeams: Teamlisting[];
+    allTeams: any;
 	
 
 	constructor(private competitionService: CompetitionService, private _route : ActivatedRoute) { }
