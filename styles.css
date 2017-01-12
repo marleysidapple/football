@@ -65,3 +65,10 @@ ul.teamlisting{
 	line-height: 17px;
 }
 
+
+a.teamname{
+	text-decoration: none;
+    color: #312e2e;
+    font-size: 13px;
+    line-height: 17px;
+}
