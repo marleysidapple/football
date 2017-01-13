@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/observable/of';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/publishReplay';
 
 
 
@@ -17,13 +18,18 @@ export class CompetitionService {
 
 	private url: string = 'http://api.football-data.org/v1';
 	private allTeams: Teamlisting;
-	private observable: Observable<any>;
+	private observable: Observable<any> = null;
+	private competitionId: number;
 
 	constructor(private _http: Http) { }
 
 	createAuthorizationHeader(headers: Headers) {
 	    headers.append('X-Auth-Token' , '932e2b26e9cc4e789141aec6d2eef0a1');
 	    headers.append('X-Response-Control', 'full');
+	  }
+
+	  clearCache(){
+	    this.observable = null;
 	  }
 
 
@@ -93,7 +99,8 @@ export class CompetitionService {
 
 			}).catch((error: any) => {
 				return Observable.throw(error.json().error || 'Server Error');
-			}).share();
+			}).publishReplay(1)
+              .refCount(); //or just use .share(); at the end
 
 			return this.observable;
 		}
