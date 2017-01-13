@@ -72,11 +72,13 @@ export class CompetitionService {
 	*/
 
 	getTeamListing(id: number) {
-		console.log('team called');
 		if (this.allTeams) {
 			console.log('data available');
 			return Observable.of(this.allTeams);
-		} else {
+		} else if (this.observable){
+			console.log('request pending');
+			return this.observable;
+		} else{
 			console.log('send new request');
 			// let headers = new Headers({ 'X-Auth-Token': '932e2b26e9cc4e789141aec6d2eef0a1' });
 			// headers.append('X-Response-Control', 'full');
