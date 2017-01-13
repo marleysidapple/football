@@ -5,10 +5,12 @@ import { CompetitionService } from './competition.service';
 import { FixturesComponent } from './../fixtures/fixtures.component';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Teamlisting } from './teamlisting';
+import { Competition } from './competition';
 
 import 'rxjs/Rx'; 
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
 
 
 @Component({

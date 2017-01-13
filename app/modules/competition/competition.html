@@ -33,7 +33,8 @@
 					<my-fixture [hometeam]="fix?.homeTeamName" 
 								[awayteam] = "fix?.awayTeamName" 
 								[hometeamId] = "fix?._links.homeTeam.href | explodestr" 
-								[awayteamId] = "fix?._links.awayTeam.href | explodestr">
+								[awayteamId] = "fix?._links.awayTeam.href | explodestr"
+								[timed] = "fix?.date">
 					</my-fixture>
 
 					<!-- <li><span class="clublogo"><img src="{{allTeams[0].crestUrl}}" class="img-circle" style="max-width: 50px;"></span><strong class="clubname">{{fix?.homeTeamName}}</strong></li>

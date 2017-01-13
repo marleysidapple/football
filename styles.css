@@ -72,3 +72,7 @@ a.teamname{
     font-size: 13px;
     line-height: 17px;
 }
+
+.restrict{
+	max-height: 40px;
+}

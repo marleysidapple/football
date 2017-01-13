@@ -1,13 +1,13 @@
 <li>
 	<!--{{homeTeamImage}}-->
 	<!--{{hometeamId}}-->
-	<span class="clublogo"><img src="{{homeTeamImage}}"  style="max-width: 30px;"></span>
+	<span class="clublogo"><img src="{{homeTeamImage}}"  style="max-width: 30px;" [ngClass] = "hometeam == 'Tottenham Hotspur FC' ? 'restrict' : ''"></span>
 	<strong class="clubname">{{hometeam}}</strong>
 </li>
 <li>vs</li>
 
 <li>
-	<span class="clublogo"><img src="{{awayTeamImage}}"   style="max-width: 30px;"></span>
+	<span class="clublogo"><img src="{{awayTeamImage}}"   style="max-width: 30px;" [ngClass] = "awayteam == 'Tottenham Hotspur FC' ? 'restrict' : ''"></span>
 	<strong class="clubname">{{awayteam}}</strong>
 </li>
 

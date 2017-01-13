@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';  
 import { Teamlisting } from './teamlisting';
+import { Competition } from './competition';
 
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
@@ -17,9 +19,8 @@ import 'rxjs/add/operator/publishReplay';
 export class CompetitionService {
 
 	private url: string = 'http://api.football-data.org/v1';
-	private allTeams: Teamlisting;
+	private allTeams : any;
 	private observable: Observable<any> = null;
-	private competitionId: number;
 
 	constructor(private _http: Http) { }
 
@@ -42,7 +43,7 @@ export class CompetitionService {
 		let options = new RequestOptions({headers: headers});
 		return this._http.get(this.url + '/competitions/' + id + '/leagueTable', options)
 			.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
-			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+			.catch((error: any) => Observable.throw(error.json().error || 'Server error')).share();
 	}
 
 	getFixture(id: number) {
@@ -53,7 +54,7 @@ export class CompetitionService {
 
 		return this._http.get(this.url + '/competitions/' + id + '/fixtures?timeFrame=n9', options)
 			.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
-			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+			.catch((error: any) => Observable.throw(error.json().error || 'Server error')).share();
 	}
 
 	/*
@@ -114,7 +115,7 @@ export class CompetitionService {
 
 		return this._http.get(this.url + '/teams/' + id, options)
 			.map((res: Response) => res.json()) // ...and calling .json() on the response to return data
-			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+			.catch((error: any) => Observable.throw(error.json().error || 'Server error')).share();
 	}
 
 }

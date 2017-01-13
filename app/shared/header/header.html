@@ -12,10 +12,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a routerLink = '/home'>Home</a></li>
-            <li><a href="#about">Teams</a></li>
-            <li><a href="#contact">Results</a></li>
-            <li class="dropdown" [ngClass] = "isOpen ? 'open' : ''">
+            <li routerLinkActive='active' ><a routerLink = '/home'>Home</a></li>
+            <li routerLinkActive='active'><a href="#about">Teams</a></li>
+            <li routerLinkActive='active'><a href="#contact">Results</a></li>
+            <li routerLinkActive='active' class="dropdown" [ngClass] = "isOpen ? 'open' : ''">
               <a (click) = "showallcompeition()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Competitions<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li *ngFor="let com of competition"><a routerLink="/competition/detail/{{com?.id}}" (click) ="getCompetitionDetail(com?.id)">{{com?.caption}}</a></li>

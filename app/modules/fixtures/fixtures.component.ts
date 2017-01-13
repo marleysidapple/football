@@ -14,6 +14,7 @@ export class FixturesComponent {
  @Input() awayteam:any;
  @Input() hometeamId: any;
  @Input() awayteamId: any;
+ @Input() timed: any;
 
 
  public homeTeamImage : any;
